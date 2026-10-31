@@ -31,7 +31,7 @@ function openWin(id) {
   const off = document.querySelectorAll('.win').length * 14;
   w.style.left = `calc(15% + ${off}px)`; w.style.top = `calc(7% + ${off}px)`;
   w.innerHTML = '<div class="tt"><span></span><span><b data-x>✕</b></span></div>' +
-    (memo ? '<div class="mn"><span>파일</span><span>편집</span><span>서식</span><span>보기</span><span>도움말</span></div><div class="bd"></div><div class="sb"><span>줄 1, 열 1</span><span>UTF-8</span></div>'
+    (memo ? '<div class="mn"><span>파일</span><span>편집</span><span>보기</span><span class="gear">⚙</span></div><div class="bd"></div><div class="sb"><span>줄 1, 열 1</span><span>100%</span><span>Windows (CRLF)</span><span>UTF-8</span></div>'
           : '<div class="bd empty">이 폴더는 비어 있습니다.</div>');
   w.querySelector('.tt span').textContent = title;
   if (memo) w.querySelector('.bd').textContent = DATA.memo;
@@ -52,5 +52,6 @@ function openWin(id) {
 document.querySelectorAll('.ic').forEach((b) => {
   b.onclick = () => { document.querySelectorAll('.ic').forEach((x) => x.classList.remove('sel')); b.classList.add('sel'); };
   b.ondblclick = () => openWin(b.dataset.open);
+  b.addEventListener('click', () => matchMedia('(pointer:coarse),(max-width:700px)').matches && openWin(b.dataset.open));
   b.onkeydown = (e) => e.key === 'Enter' && openWin(b.dataset.open);
 });

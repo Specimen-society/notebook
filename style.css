@@ -1,30 +1,52 @@
 *{box-sizing:border-box;margin:0}
-body{background:#0a0d10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;color:#fff;padding:16px}
+body{background:#0a0d10;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Segoe UI Variable','Segoe UI','Noto Sans KR','Malgun Gothic',sans-serif;color:#fff;padding:16px}
 .laptop{position:relative;width:min(900px,100%);aspect-ratio:900/566;background:#15181b;border:1px solid #262a2e;border-radius:22px 22px 4px 4px;padding:2.2% 2.2% 1.8%}
 .cam{position:absolute;top:1.3%;left:50%;width:7px;height:7px;margin-left:-3px;border-radius:50%;background:#050607}
 .base{width:min(980px,110%);max-width:100vw;height:24px;background:linear-gradient(#2a2e33,#1c1f23);border-radius:0 0 40px 40px;display:flex;justify-content:center}
 .notch{width:150px;height:9px;background:#15181b;border-radius:0 0 10px 10px}
-.screen{position:relative;width:100%;height:100%;overflow:hidden;font-size:clamp(7px,1.4vw,13px);background:radial-gradient(ellipse at 20% 15%,#1f3040,#0e1a26 45%,#070c12)}
+/* Windows 11 Bloom-style wallpaper */
+.screen{position:relative;width:100%;height:100%;overflow:hidden;font-size:clamp(7px,1.4vw,13px);background:radial-gradient(ellipse at 70% 35%,#2f6fd6 0,transparent 45%),radial-gradient(ellipse at 35% 70%,#0b3a8a 0,transparent 55%),linear-gradient(135deg,#0a1a3a,#081226 60%,#05080f)}
 section{position:absolute;inset:0}[hidden]{display:none!important}
-#lock{display:flex;flex-direction:column;align-items:center;padding-top:7%}
-.clock{font-size:6.5em;font-weight:100;line-height:1}.date{margin-top:.6em;font-size:1.3em}
-.avatar{flex-shrink:0;margin-top:1.6em;width:2.6em;height:2.6em;border-radius:50%;background:#3b4852;display:grid;place-items:center;font-size:3em;font-weight:700}
-.uname{margin-top:.6em;font-weight:700;font-size:1.5em}
-#pwForm{margin-top:.9em;display:flex;width:18em;background:#3a424b;border:1px solid #4d5660;border-radius:4px}
+#lock{display:flex;flex-direction:column;align-items:center;padding-top:7%;backdrop-filter:blur(18px);background:rgba(8,14,26,.55)}
+.clock{font-size:6.5em;font-weight:600;line-height:1}.date{margin-top:.4em;font-size:1.6em}
+.avatar{flex-shrink:0;margin-top:1.6em;width:2.6em;height:2.6em;border-radius:50%;background:#4a5968;display:grid;place-items:center;font-size:3em;font-weight:600}
+.uname{margin-top:.6em;font-weight:600;font-size:1.6em}
+#pwForm{margin-top:.9em;display:flex;width:18em;max-width:86%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-bottom-color:#60a5fa;border-radius:6px}
 #pwForm.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-#pw{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;padding:.8em;font:inherit}
+#pw{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;padding:.8em;font:inherit;font-size:max(1em,16px)}
 #pwForm button{background:none;border:0;color:#fff;padding:0 .9em;font-size:1.3em;cursor:pointer}
-.hint{margin-top:1em;font-size:.85em;color:#9aa4ad}.hint.err{color:#e08a8a}
-.icons{position:absolute;top:4%;left:3%;display:flex;flex-direction:column;gap:.9em}
-.ic{width:6.5em;background:none;border:1px solid transparent;border-radius:4px;color:#fff;font:inherit;font-size:.95em;padding:.4em .2em;display:flex;flex-direction:column;align-items:center;gap:.4em;cursor:pointer}
-.ic i{width:2.4em;height:2.4em;border-radius:.6em;display:grid;place-items:center;font-style:normal;font-size:1.7em}
-.ic:focus,.ic.sel{background:rgba(70,100,150,.45);border-color:#5f84b8;outline:0}
-.task{position:absolute;left:0;right:0;bottom:0;height:9%;background:rgba(5,10,16,.85);border-top:1px solid #1b2530;display:flex;align-items:center;gap:.8em;padding:0 1.2em}
-.tb{width:2.2em;height:2.2em;border-radius:.4em;background:#2b2e33}.tc{margin-left:auto;text-align:right;font-size:.85em;line-height:1.3}
-.win{position:absolute;background:#fcfcfc;color:#222;border-radius:.6em;box-shadow:0 .8em 2.5em rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;left:15%;top:7%;width:68%;height:80%}
-.tt{background:#f1f2f4;padding:.55em .9em;display:flex;justify-content:space-between;cursor:move;user-select:none;font-size:.9em;touch-action:none}
-.tt b{font-weight:400;cursor:pointer;padding:0 .5em}.tt b:hover{color:#c33}
-.mn{background:#fafafa;border-bottom:1px solid #e3e3e3;padding:.4em .9em;font-size:.8em;display:flex;gap:1.3em;color:#444}
-.bd{flex:1;padding:1.6em 1.8em;font-family:'Nanum Gothic Coding','D2Coding',Consolas,monospace;font-size:1.25em;line-height:1.75;white-space:pre-wrap;overflow:auto}
-.bd.empty{font-family:inherit;color:#888;font-size:1em;display:grid;place-items:center}
-.sb{background:#f4f4f4;border-top:1px solid #e3e3e3;padding:.3em .9em;font-size:.75em;color:#666;display:flex;gap:1.5em}
+.hint{margin-top:1em;font-size:.9em;color:#c3cbd6;text-align:center;padding:0 1em}.hint.err{color:#ffb4b4}
+.lt{position:absolute;right:1.5em;bottom:1.2em;font-size:1.2em}
+.icons{position:absolute;top:3%;left:2%;display:flex;flex-direction:column;gap:.5em}
+.ic{width:6.5em;background:none;border:1px solid transparent;border-radius:4px;color:#fff;font:inherit;font-size:.95em;padding:.4em .2em;display:flex;flex-direction:column;align-items:center;gap:.3em;cursor:pointer;text-shadow:0 1px 3px #000}
+.ic i{width:2.2em;height:2.2em;display:grid;place-items:center;font-style:normal;font-size:1.9em;background:none!important}
+.ic:focus,.ic.sel{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3);outline:0}
+/* Win11 taskbar: centered icons, tray on the right */
+.task{position:absolute;left:0;right:0;bottom:0;height:11%;min-height:2.6em;background:rgba(32,36,44,.82);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;z-index:9999}
+.tc-c{display:flex;gap:.4em;align-items:center}
+.tb{width:2.4em;height:2.4em;border-radius:.4em;display:grid;place-items:center;font-size:1.2em}
+.win-logo{width:2.4em;height:2.4em;display:grid;grid-template:1fr 1fr/1fr 1fr;gap:.12em;padding:.55em}
+.win-logo s{background:#4cc2ff;display:block}
+.tray{position:absolute;right:1em;display:flex;align-items:center;gap:.7em;font-size:.9em}
+.tclock{text-align:right;line-height:1.25;font-size:.9em}
+/* Win11 Notepad / Explorer window */
+.win{position:absolute;background:#f9f9f9;color:#1b1b1b;border-radius:.8em;border:1px solid #c8c8c8;box-shadow:0 1em 3em rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;left:15%;top:6%;width:68%;height:78%}
+.tt{background:#eef1f6;padding:.6em .9em;display:flex;justify-content:space-between;cursor:move;user-select:none;font-size:.95em;touch-action:none}
+.tt b{font-weight:400;cursor:pointer;padding:0 .7em}.tt b:hover{color:#c33}
+.mn{background:#f9f9f9;padding:.4em .9em;font-size:.9em;display:flex;gap:1.4em;color:#333}.gear{margin-left:auto}
+.bd{flex:1;padding:1em 1.4em;font-family:Consolas,'D2Coding','Nanum Gothic Coding',monospace;font-size:1.3em;line-height:1.6;white-space:pre-wrap;overflow:auto;background:#fff}
+.bd.empty{font-family:inherit;color:#777;font-size:1em;display:grid;place-items:center}
+.sb{background:#f3f3f3;border-top:1px solid #e3e3e3;padding:.35em .9em;font-size:.8em;color:#555;display:flex;gap:1.6em;justify-content:flex-end;flex-wrap:wrap}.sb span:first-child{margin-right:auto}
+
+/* Mobile / coarse pointer: drop the laptop frame, fill the screen */
+@media (max-width:700px),(pointer:coarse) and (max-width:900px){
+  body{padding:0;display:block}
+  .laptop{width:100vw;height:100vh;height:100dvh;aspect-ratio:auto;padding:0;border:0;border-radius:0;background:none}
+  .cam,.base{display:none}
+  .screen{font-size:14px}
+  .clock{font-size:5.2em}
+  .task{height:3.4em;justify-content:flex-start;padding-left:.8em}.tg{display:none}
+  .icons{top:1em;left:.6em;gap:.4em}
+  .win{left:0!important;top:0!important;width:100%;height:calc(100% - 3.4em);border-radius:0;border:0}
+  .bd{font-size:1.1em;padding:1em}
+}
